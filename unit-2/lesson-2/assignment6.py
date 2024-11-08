@@ -69,20 +69,30 @@ txt = open("scrape.txt").read()
 # markovify
 markov = markovify.Text(txt)
 
-# make poem variable
-poem = ""
+paragraph = ""
 
-# make poem, similar to paragraph we did except I changed the full stops to commas, shortened the sentences a bit, and moved the lines under each other
-for i in range(3):
-    poem += "\n"
-    poem += str(markov.make_short_sentence(50))
-    poem = poem.replace(".", ",")
-    poem += "\n"
-    poem += str(markov.make_short_sentence(50))
+for i in range(10):
+    paragraph += str(markov.make_short_sentence(80))
+    paragraph += " "
 
-# print poem
-print("fun markov poem based on the site : " + str(poem))
-print("\n")
+print("\n\n\n")
+print(paragraph)
+print("\n\n\n")
+
+# # make poem variable
+# poem = ""
+
+# # make poem, similar to paragraph we did except I changed the full stops to commas, shortened the sentences a bit, and moved the lines under each other
+# for i in range(3):
+#     poem += "\n"
+#     poem += str(markov.make_short_sentence(50))
+#     poem = poem.replace(".", ",")
+#     poem += "\n"
+#     poem += str(markov.make_short_sentence(50))
+
+# # print poem
+# print("fun markov poem based on the site : " + str(poem))
+# print("\n")
 
 
 

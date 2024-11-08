@@ -1,21 +1,21 @@
 import markovify
-# # look at documentation for markofivy here: https://github.com/jsvine/markovify
+# # # look at documentation for markofivy here: https://github.com/jsvine/markovify
 
-text = open("123.txt").read()
-
-generator = markovify.Text(text, state_size=3) 
+text = open("tabloidtitles.txt").read()
+ 
+generator = markovify.Text(text, state_size=1) 
 
 paragraph = ""
 
-for i in range(10):
-    paragraph += str(generator.make_short_sentence(80))
+for i in range(3):
+    paragraph += str(generator.make_short_sentence(100))
     paragraph += " "
 
 print("\n\n\n")
 print(paragraph)
 print("\n\n\n")
 
-# # ---
+# ---
 
 # import random
 # import sys
@@ -79,7 +79,7 @@ print("\n\n\n")
 # print(finalPrintOut)
 # print("\n\n\n")
 
-# # ---
+# ---
 
 # import pprint
 
@@ -105,29 +105,30 @@ print("\n\n\n")
 # # # use pretty print library to see dictionary more clearly
 # pprint.pp(markovDictionary)
 
-# # ---
+# ---
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
+# import sys
 
-crgslist_response = requests.get("https://wiki.bloodontheclocktower.com/Trouble_Brewing")
+# website = requests.get(sys.argv[1])
 
-crgslist_soup_html = BeautifulSoup(crgslist_response.text, "html.parser")
+# crgslist_soup_html = BeautifulSoup(website.text, "html.parser")
 
-crgslist_text = crgslist_soup_html.get_text()
+# crgslist_text = crgslist_soup_html.get_text()
 
-freeStuff = []
+# freeStuff = []
 
-def getTitles(soupdata):
-    titles = soupdata.select(".title")
-    # if titles:
-    #     for t in titles:
-    freeStuff.append(soupdata.get_text())
+# def getTitles(soupdata):
+#     titles = soupdata.select(".articletext")
+#     print(titles)
+#     for t in titles:
+#             freeStuff.append(t.get_text())
 
-getTitles(crgslist_soup_html)
+# getTitles(crgslist_soup_html)
 
-freeText = " ".join(freeStuff)
+# freeText = " ".join(freeStuff)
 
-crgslist_data = open('crgslist_free.txt', 'w')
-crgslist_data.write(freeText)
-crgslist_data.close()
+# crgslist_data = open('tabloidcontent.txt', 'w')
+# crgslist_data.write(freeText)
+# crgslist_data.close()
